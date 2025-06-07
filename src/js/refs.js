@@ -1,3 +1,3 @@
-export const btnChangeTheme = document.querySelector('.btn-change-theme');
+export const btnChangeTheme = document.querySelector('.theme-toggle-btn');
 export const tasksList = document.querySelector('.tasks-list');
-export const taskForm = document.querySelector('.container');
+export const taskForm = document.querySelector('.header-form');
