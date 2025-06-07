@@ -1,6 +1,8 @@
 import { getFromLocalStorage } from './js/local-storage-api.js';
 import { taskForm } from './js/refs.js';
 import { createTask } from './js/tasks.js';
+import { addTasks } from './js/render-tasks.js';
+
 /*
   Створи список справ.
   На сторінці є два інпути які має вводиться назва і текст задачі.
