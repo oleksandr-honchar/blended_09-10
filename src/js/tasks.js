@@ -1,15 +1,17 @@
-let tasks = [];
+import { refs } from './refs.js';
 
-export const getTasks = () => tasks;
+export function addTask(task) {
+  const li = document.createElement('li');
+  li.classList.add('task-item');
+  li.dataset.id = task.id;
 
-export const setTasks = newTasks => {
-  tasks = newTasks;
-};
+  li.innerHTML = `
+    <div>
+      <h3>${task.title}</h3>
+      <p>${task.description || ''}</p>
+    </div>
+    <button class="delete-btn">🗑</button>
+  `;
 
-export const addTask = task => {
-  tasks.push(task);
-};
-
-export const deleteTask = id => {
-  tasks = tasks.filter(task => task.id !== id);
-};
+  refs.taskList.prepend(li);
+}
