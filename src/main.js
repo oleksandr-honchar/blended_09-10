@@ -2,6 +2,7 @@ import { getFromLocalStorage } from './js/local-storage-api.js';
 import { taskForm } from './js/refs.js';
 import { createTask } from './js/tasks.js';
 import { addTasks } from './js/render-tasks.js';
+import { createMarkup } from './js/markup-tasks.js';
 
 taskForm.addEventListener('submit', createTask);
 
