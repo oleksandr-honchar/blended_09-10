@@ -1,24 +1,25 @@
+export const headerFormBtn = document.querySelector('.header-form-btn');
+export const headerForm = document.querySelector('.header-form');
+
+import {
+  headerTaskName,
+  headerTaskDescription,
+  addTask,
+  tasksList,
+} from './render-tasks.js';
+
+import { createMarkup } from './markup-tasks.js';
+
 export const createTask = event => {
   event.preventDefault();
 
-  const form = event.currentTarget;
-  const title = form.elements.title.value.trim();
-  const description = form.elements.description.value.trim();
-
-  if (!title) {
-    alert('Please enter a task title');
-    return;
-  }
-
-  const task = {
+  addTask({
     id: Date.now(),
-    title,
-    description,
-  };
+    title: taskName.value.trim(),
+    description: taskDescription.value.trim(),
+  });
 
-  const markup = createMarkup(task);
-  tasksList.insertAdjacentHTML('beforeend', markup);
-
-  form.reset();
-  saveTasksToLocalStorage();
+  taskName.value = '';
+  taskDescription.value = '';
+  taskName.focus();
 };
