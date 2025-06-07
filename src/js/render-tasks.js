@@ -1,6 +1,6 @@
 import { refs } from './refs.js';
 import { deleteTask, getTasks } from './tasks.js';
-import { saveTasks } from './localStorageApi.js';
+import { saveTasks } from './local-storage-api.js';
 
 export const renderTasks = () => {
   refs.taskList.innerHTML = '';

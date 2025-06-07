@@ -21,9 +21,9 @@ import {
   saveTasks,
   loadTheme,
   saveTheme,
-} from './js/localStorageApi.js';
+} from './js/local-storage-api.js';
 import { addTask, getTasks, setTasks } from './js/tasks.js';
-import { renderTasks } from './js/renderTasks.js';
+import { renderTasks } from './js/render-tasks.js';
 
 // Init tasks
 setTasks(loadTasks());
