@@ -1,8 +1,4 @@
-export const headerFormBtn = document.querySelector('.header-form-btn');
-export const headerForm = document.querySelector('.header-form');
-
 import { addTask, taskName, taskDescription } from './render-tasks.js';
-
 import { addToLocalStorage, getFromLocalStorage } from './local-storage-api.js';
 
 export const createTask = event => {
@@ -22,3 +18,6 @@ export const createTask = event => {
   data.push(task);
   addToLocalStorage(data);
 };
+
+export const headerFormBtn = document.querySelector('.header-form-btn');
+export const headerForm = document.querySelector('.header-form');
