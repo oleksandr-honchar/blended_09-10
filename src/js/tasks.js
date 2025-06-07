@@ -10,10 +10,6 @@ export const createTask = event => {
     description: taskDescription.value.trim(),
   });
 
-  taskName.value = '';
-  taskDescription.value = '';
-  taskName.focus();
-
   const data = getFromLocalStorage();
   data.push(task);
   addToLocalStorage(data);
