@@ -1,4 +1,4 @@
-import { formContainer } from './js/refs.js';
+import { taskForm } from './js/refs.js';
 /*
   Створи список справ.
   На сторінці є два інпути які має вводиться назва і текст задачі.
@@ -16,4 +16,4 @@ import { formContainer } from './js/refs.js';
   </li>
 */
 
-formContainer.addEventListener('submit', createTask);
+taskForm.addEventListener('submit', createTask);
