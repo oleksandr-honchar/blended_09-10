@@ -1,3 +1,4 @@
+// render-tasks.js
 import { refs } from './refs.js';
 import { deleteTask, getTasks } from './tasks.js';
 import { saveTasks } from './local-storage-api.js';
@@ -5,19 +6,28 @@ import { saveTasks } from './local-storage-api.js';
 export const renderTasks = () => {
   refs.taskList.innerHTML = '';
 
-  getTasks().forEach(task => {
+  const tasks = getTasks();
+
+  tasks.forEach(task => {
     const li = document.createElement('li');
-    li.textContent = `${task.title}: ${task.desc}`;
+    li.classList.add('task-item');
+    li.dataset.id = task.id;
 
-    const btn = document.createElement('button');
-    btn.textContent = 'Delete';
-    btn.onclick = () => {
+    li.innerHTML = `
+      <div>
+        <h3>${task.title}</h3>
+        <p>${task.description || ''}</p>
+      </div>
+      <button class="delete-btn">🗑</button>
+    `;
+
+    const deleteBtn = li.querySelector('.delete-btn');
+    deleteBtn.addEventListener('click', () => {
       deleteTask(task.id);
-      saveTasks(getTasks());
-      renderTasks();
-    };
+      saveTasks(getTasks()); // Update storage after deletion
+      renderTasks(); // Re-render UI
+    });
 
-    li.appendChild(btn);
     refs.taskList.appendChild(li);
   });
 };
