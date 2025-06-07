@@ -15,15 +15,15 @@
   </li>
 */
 
-import { refs } from './refs.js';
+import { refs } from './js/refs.js';
 import {
   loadTasks,
   saveTasks,
   loadTheme,
   saveTheme,
-} from './localStorageApi.js';
-import { addTask, getTasks, setTasks } from './tasks.js';
-import { renderTasks } from './renderTasks.js';
+} from './js/localStorageApi.js';
+import { addTask, getTasks, setTasks } from './js/tasks.js';
+import { renderTasks } from './js/renderTasks.js';
 
 // Init tasks
 setTasks(loadTasks());
