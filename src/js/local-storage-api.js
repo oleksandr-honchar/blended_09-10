@@ -1,7 +1,10 @@
-const LS_KEY = 'tasks';
-export const addToLocalStorage = array => {
-  localStorage.setItem(LS_KEY, JSON.stringify(array));
+const TASKS_KEY = 'tasks';
+
+export const getTasks = () => {
+  const saved = localStorage.getItem(TASKS_KEY);
+  return saved ? JSON.parse(saved) : [];
 };
 
-export const getFromLocalStorage = () =>
-  JSON.parse(localStorage.getItem(LS_KEY)) || [];
+export const saveTasks = tasks => {
+  localStorage.setItem(TASKS_KEY, JSON.stringify(tasks));
+};

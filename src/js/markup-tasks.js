@@ -1,9 +1,10 @@
-export const createMarkup = task => {
-  return `
-    <li class="task-list-item" id="${task.id}">
-      <button class="task-list-item-btn">Delete</button>
-        <h3>${task.title}</h3>
-        <p>${task.description}</p>
-     </li>
+export const createTaskMarkup = ({ title, description }) => {
+  const li = document.createElement('li');
+  li.className = 'task-list-item';
+  li.innerHTML = `
+    <button class="task-list-item-btn">Delete</button>
+    <h3>${title}</h3>
+    <p>${description}</p>
   `;
+  return li;
 };
