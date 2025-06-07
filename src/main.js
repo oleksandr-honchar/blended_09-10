@@ -15,18 +15,15 @@
   </li>
 */
 
-import { createMarkup } from './js/markup-tasks.js';
-import {
-  getFromLocalStorage,
-  addToLocalStorage,
-} from './js/local-storage-api.js';
-import { taskForm, taskName, taskDescription } from './js/refs.js';
-import { createTask } from './js/tasks.js';
-import { addTasks } from './js/render-tasks.js';
+import { taskForm, taskName, taskDescription } from './js/refs.js'; // Import refs correctly
+import { createTask } from './js/tasks.js'; // Import function to create tasks
+import { addTasks } from './js/render-tasks.js'; // Function to render tasks
+import { getFromLocalStorage } from './js/local-storage-api.js'; // To get tasks from local storage
 
-taskForm.addEventListener('submit', createTask);
+taskForm.addEventListener('submit', createTask); // Add event listener for form submission
 
-const tasks = getFromLocalStorage(); // Fetch tasks from local storage
+// Fetch tasks from local storage and render them if they exist
+const tasks = getFromLocalStorage();
 if (tasks.length) {
   addTasks(tasks); // Render tasks if they exist
 }

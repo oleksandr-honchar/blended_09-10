@@ -1,30 +1,13 @@
-// tasks.js
-import { taskName, taskDescription } from './render-tasks.js';
-import { addTask } from './render-tasks.js'; // Assuming addTask is a function that adds tasks to the UI
-import { addToLocalStorage, getFromLocalStorage } from './local-storage-api.js';
+import { taskName, taskDescription } from './refs.js'; // Import references
 
 export const createTask = event => {
-  event.preventDefault();
+  event.preventDefault(); // Prevent default form submission
 
   const task = {
-    id: Date.now(), // Unique ID for each task
-    title: taskName.value.trim(), // Task name from input
-    description: taskDescription.value.trim(), // Task description from input
+    id: Date.now(), // Use current timestamp as task ID
+    title: taskName.value.trim(), // Get title from taskName input
+    description: taskDescription.value.trim(), // Get description from taskDescription input
   };
 
-  if (!task.title || !task.description) return; // Prevent creating empty tasks
-
-  // Add task to UI
-  addTask(task);
-
-  // Get current tasks from local storage
-  const data = getFromLocalStorage();
-  data.push(task);
-
-  // Save tasks back to local storage
-  addToLocalStorage(data);
-
-  // Clear input fields after submission
-  taskName.value = '';
-  taskDescription.value = '';
+  // Code to save this task to local storage or render it to the page
 };
