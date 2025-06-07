@@ -1,11 +1,3 @@
-import { getFromLocalStorage } from './js/local-storage-api.js';
-import { taskForm } from './js/refs.js';
-import { createTask } from './js/tasks.js';
-import { addTasks } from './js/render-tasks.js';
-import { createMarkup } from './js/markup-tasks.js';
-
-taskForm.addEventListener('submit', createTask);
-
 /*
   Створи список справ.
   На сторінці є два інпути які має вводиться назва і текст задачі.
@@ -23,9 +15,18 @@ taskForm.addEventListener('submit', createTask);
   </li>
 */
 
+import { createMarkup } from './js/markup-tasks.js';
+import {
+  getFromLocalStorage,
+  addToLocalStorage,
+} from './js/local-storage-api.js';
+import { taskForm, taskName, taskDescription } from './js/refs.js';
+import { createTask } from './js/tasks.js';
+import { addTasks } from './js/render-tasks.js';
+
 taskForm.addEventListener('submit', createTask);
 
-const tasks = getFromLocalStorage();
+const tasks = getFromLocalStorage(); // Fetch tasks from local storage
 if (tasks.length) {
-  addTasks(tasks);
+  addTasks(tasks); // Render tasks if they exist
 }
