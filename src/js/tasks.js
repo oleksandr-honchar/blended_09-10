@@ -9,6 +9,7 @@ import {
 } from './render-tasks.js';
 
 import { createMarkup } from './markup-tasks.js';
+import { addToLocalStorage, getFromLocalStorage } from './local-storage-api.js';
 
 export const createTask = event => {
   event.preventDefault();
@@ -22,4 +23,8 @@ export const createTask = event => {
   taskName.value = '';
   taskDescription.value = '';
   taskName.focus();
+
+  const data = getFromLocalStorage();
+  data.push(task);
+  addToLocalStorage(data);
 };
