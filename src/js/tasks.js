@@ -1,19 +1,24 @@
-// tasks.js
-let tasks = [];
+export const createTask = event => {
+  event.preventDefault();
 
-export function setTasks(newTasks) {
-  tasks = newTasks;
-}
+  const form = event.currentTarget;
+  const title = form.elements.title.value.trim();
+  const description = form.elements.description.value.trim();
 
-export function getTasks() {
-  return tasks;
-}
+  if (!title) {
+    alert('Please enter a task title');
+    return;
+  }
 
-export function addTask(task) {
-  tasks.unshift(task);
-  // your DOM logic here
-}
+  const task = {
+    id: Date.now(),
+    title,
+    description,
+  };
 
-export function deleteTask(id) {
-  tasks = tasks.filter(task => task.id !== id);
-}
+  const markup = createMarkup(task);
+  tasksList.insertAdjacentHTML('beforeend', markup);
+
+  form.reset();
+  saveTasksToLocalStorage();
+};

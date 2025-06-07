@@ -15,46 +15,4 @@
   </li>
 */
 
-import { refs } from './js/refs.js';
-import {
-  loadTasks,
-  saveTasks,
-  loadTheme,
-  saveTheme,
-} from './js/local-storage-api.js';
-import { addTask, getTasks, setTasks } from './js/tasks.js';
-import { renderTasks } from './js/render-tasks.js';
-
-// Init tasks
-setTasks(loadTasks());
-renderTasks();
-
-// Init theme
-const currentTheme = loadTheme();
-if (currentTheme === 'dark') refs.body.classList.add('dark');
-
-refs.themeToggle.addEventListener('click', () => {
-  refs.body.classList.toggle('dark');
-  saveTheme(refs.body.classList.contains('dark') ? 'dark' : 'light');
-});
-
-refs.form.addEventListener('submit', e => {
-  e.preventDefault();
-
-  const title = refs.titleInput.value.trim();
-  const desc = refs.descInput.value.trim();
-
-  if (!title || !desc) return;
-
-  const task = {
-    id: Date.now().toString(),
-    title,
-    desc,
-  };
-
-  addTask(task);
-  saveTasks(getTasks());
-  renderTasks();
-
-  refs.form.reset();
-});
+formContainer.addEventListener('submit', createTask);

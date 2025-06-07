@@ -1,12 +1,3 @@
-export const refs = {
-  // Header
-  themeToggleBtn: document.querySelector('#themeToggle'),
-  form: document.querySelector('#task-form'),
-  formInputs: {
-    title: document.querySelector('input[name="taskName"]'),
-    description: document.querySelector('input[name="taskDescription"]'),
-  },
-
-  // Tasks List
-  taskList: document.querySelector('#task-list'),
-};
+export const btnChangeTheme = document.querySelector('.btn-change-theme');
+export const tasksList = document.querySelector('.tasks-list');
+export const taskForm = document.querySelector('.container');
