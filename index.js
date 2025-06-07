@@ -4,5 +4,5 @@
         <h3>${r.title}</h3>
         <p>${r.description}</p>
      </li>
-  `,h=r=>{f.insertAdjacentHTML("beforeend",g(r))},{taskName:n,taskDescription:i}=document.forms.headerForm.elements;document.querySelector(".header-form-btn");document.querySelector(".header-form-btn");document.querySelector(".header-form");const y=r=>{r.preventDefault(),h({id:Date.now(),title:n.value.trim(),description:i.value.trim()}),n.value="",i.value="",n.focus();const o=u();o.push(task),m(o)};p.addEventListener("submit",y);const a=u();a.length&&addTasks(a);
+  `,h=r=>{f.insertAdjacentHTML("beforeend",g(r))},{taskName:n,taskDescription:i}=document.forms.headerForm.elements;document.querySelector(".header-form-btn");const y=r=>{r.preventDefault(),h({id:Date.now(),title:n.value.trim(),description:i.value.trim()}),n.value="",i.value="",n.focus();const o=u();o.push(task),m(o)};document.querySelector(".header-form-btn");document.querySelector(".header-form");p.addEventListener("submit",y);const a=u();a.length&&addTasks(a);
 //# sourceMappingURL=index.js.map
